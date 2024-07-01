@@ -38,47 +38,44 @@ public class Main {
         System.out.println();
 
         System.out.println("Task 4");
-        double vasyaMoneyPercent = 1.07;
-        double vasyaMoneyDeposite = 15000;
+        double vasyaDepositPercent = 1.07;
+        double vasyaDepositAmount = 15000;
+        double vasyaDepositAmountGoal = 12_000_000;
         int vasyaMonthAmount = 1;
-        while (vasyaMoneyDeposite < 12_000_000) {
-            vasyaMoneyDeposite *= vasyaMoneyPercent;
-            System.out.printf("Месяц %s, депозит: %.2f\n", vasyaMonthAmount, vasyaMoneyDeposite);
+        while (vasyaDepositAmount < vasyaDepositAmountGoal) {
+            vasyaDepositAmount *= vasyaDepositPercent;
+            System.out.printf("Месяц %s, депозит: %.2f\n", vasyaMonthAmount, vasyaDepositAmount);
             vasyaMonthAmount++;
         }
         System.out.println();
 
         System.out.println("Task 5");
-        double taskFiveVasyaMoneyPercent = 1.07;
-        double taskFiveVasyaMoneyDeposite = 15000;
-        int taskFiveVasyaMonthAmount = 1;
-        while (taskFiveVasyaMoneyDeposite < 12_000_000) {
-            taskFiveVasyaMoneyDeposite *= taskFiveVasyaMoneyPercent;
-            if (taskFiveVasyaMonthAmount % 6 == 0) {
-                System.out.printf("Месяц %s, депозит: %.2f\n", taskFiveVasyaMonthAmount, taskFiveVasyaMoneyDeposite);
+        vasyaDepositAmount = 15000;
+        vasyaMonthAmount = 1;
+        while (vasyaDepositAmount < vasyaDepositAmountGoal) {
+            vasyaDepositAmount *= vasyaDepositPercent;
+            if (vasyaMonthAmount % 6 == 0) {
+                System.out.printf("Месяц %s, депозит: %.2f\n", vasyaMonthAmount, vasyaDepositAmount);
             }
-            taskFiveVasyaMonthAmount++;
+            vasyaMonthAmount++;
         }
         System.out.println();
 
         System.out.println("Task 6");
-        double taskSixVasyaMoneyPercent = 1.07;
-        double taskSixVasyaMoneyDeposite = 15000;
-        int taskSixVasyaMonthAmount = 9 * 12;
-        for (int i = 1; i <= taskSixVasyaMonthAmount; i++) {
-            taskSixVasyaMoneyDeposite *= taskSixVasyaMoneyPercent;
+        vasyaDepositAmount = 15000;
+        vasyaMonthAmount = 9 * 12;
+        for (int i = 1; i <= vasyaMonthAmount; i++) {
+            vasyaDepositAmount *= vasyaDepositPercent;
             if (i % 6 == 0) {
-                System.out.printf("Месяц %s, депозит: %.2f\n", i, taskSixVasyaMoneyDeposite);
+                System.out.printf("Месяц %s, депозит: %.2f\n", i, vasyaDepositAmount);
             }
         }
         System.out.println();
 
         System.out.println("Task 7");
         int dayOfFirstFriday = 2;
-        for (int i = 1; i <= 31; i++) {
-            if (i == dayOfFirstFriday || (i - dayOfFirstFriday) % 7 == 0) {
-                System.out.printf("Сегодня пятница, %s-е число. Необходимо подготовить отчет\n", i);
-            }
+        for (int i = dayOfFirstFriday; i <= 31; i+=7) {
+            System.out.printf("Сегодня пятница, %s-е число. Необходимо подготовить отчет\n", i);
         }
         System.out.println();
 
@@ -87,8 +84,8 @@ public class Main {
         int yearCurrent = 2024;
         int borderLower = yearCurrent - 200;
         int borderUpper = yearCurrent + 100;
-        for (int i = 0; i < borderUpper; i += period) {
-            if (i > borderLower) {
+        for (int i = borderLower; i < borderUpper; i++) {
+            if (i % period == 0) {
                 System.out.println(i);
             }
         }
